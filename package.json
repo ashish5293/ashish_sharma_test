@@ -4,8 +4,8 @@
   "description": "Ormuco Test",
   "main": "index.js",
   "scripts": {
-    "questionASolution": "ts-node question_a/solution.ts",
-    "questionBSolution": "ts-node question_b/solution.ts",
+    "questionASolution": "ts-node src/questionA/solution.ts",
+    "questionBSolution": "ts-node src/questionB/solution.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -13,10 +13,9 @@
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^20.8.10",
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1",
     "tsc": "^2.0.4",
     "typescript": "^5.2.2"
-  },
-  "dependencies": {
-    "ts-node": "^10.9.1"
   }
 }
