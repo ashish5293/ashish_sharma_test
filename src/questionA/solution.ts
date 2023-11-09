@@ -27,8 +27,6 @@ const lineSegmentComparisonCases = [
     // Coinciding at a point (edge case, depending on implementation may be considered as overlapping or not)
     { line1: new LineSegmentXAxis(0, 0), line2: new LineSegmentXAxis(0, 0) },
 
-    // Additional cases...
-
     // Directly adjacent (non-overlapping) but touching at a point
     { line1: new LineSegmentXAxis(1, 3), line2: new LineSegmentXAxis(3, 5) },
 

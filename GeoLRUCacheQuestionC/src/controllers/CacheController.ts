@@ -38,7 +38,7 @@ export class CacheController {
         const key = req.body["key"] as string
         const value = req.body["value"]
 
-        let expiration = 30000
+        let expiration = 100000
         if ("expiration" in req.body) {
             expiration = req.body["expiration"] as number
         }

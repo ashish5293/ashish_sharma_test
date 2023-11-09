@@ -1,6 +1,5 @@
 import {get, set} from "../cacheManager/CacheManager";
 import {RegionCode} from "../GeographicalRegionCodes";
-import {compareVersions} from "../questionB/compareVersions";
 
 export class LineSegmentXAxis {
 
@@ -21,7 +20,7 @@ export class LineSegmentXAxis {
         if(typeof cacheResult !== "boolean") {
             cacheResult =  this.overlapsWith(lineSegment)
             // if cache miss, then set the cache
-            set(cacheKey, cacheResult, 50000, regionCode)
+            set(cacheKey, cacheResult, 50000, regionCode).then(() => console.log("Cache successfully set"));
         }
 
         return cacheResult

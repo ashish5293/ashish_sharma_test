@@ -10,7 +10,7 @@ export class LRUCache<V> {
     private readonly maxSize: number;
     private readonly defaultExpiration: number;
 
-    constructor(maxSize: number, defaultExpiration: number = 10000) {
+    constructor(maxSize: number, defaultExpiration: number = 100000) {
         this.cacheMap = new Map<string, CacheValue<V>>();
         this.maxSize = maxSize;
         this.defaultExpiration = defaultExpiration;

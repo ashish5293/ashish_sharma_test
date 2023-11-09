@@ -30,9 +30,26 @@ const compareVersionsCases = [
 compareVersionsCases.forEach(({ version1, version2, expected }) => {
     try {
         const result = compareVersions(version1, version2);
-        console.log(`Comparing versions '${version1}' and '${version2}' with expected value of ${expected}: Result -> ${result}`);
+        let readableOutputMessage = ""
+        switch(result) {
+            case 1:
+                readableOutputMessage = `${version1} is greater than ${version2}`;
+                break;
+            case -1:
+                readableOutputMessage = `${version1} is less than ${version2}`;
+                break;
+            case 0:
+                readableOutputMessage = `${version1} is same as ${version2}`;
+                break;
+            default:
+                readableOutputMessage = ""
+        }
+
+        const finalOutputMsg = `${result} (i.e. ${readableOutputMessage}) `
+
+        console.log(`Comparing versions '${version1}' and '${version2}' with expected value of ${expected}: Result -> ${finalOutputMsg}`);
         if (result !== expected) {
-            console.error(`Test failed for versions '${version1}' and '${version2}'. Expected ${expected} but got ${result}.`);
+            console.error(`Test failed for versions '${version1}' and '${version2}'. Expected ${expected} but got ${finalOutputMsg}.`);
         }
     } catch (error) {
         if (expected === 'error') {
