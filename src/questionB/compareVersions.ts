@@ -1,3 +1,6 @@
+import {get, set} from "../cacheManager/CacheManager";
+import {RegionCode} from "../GeographicalRegionCodes";
+
 export class VersionValidationError extends Error {}
 
 export function isValidVersion(version: string): boolean {
@@ -32,4 +35,26 @@ export function compareVersions(versionA: string, versionB: string): number {
     }
 
     return 0;
+}
+
+
+
+export async function compareVersionsWithCheckingCache(
+    versionA: string,
+    versionB: string,
+    regionCode: RegionCode = "us-east-1"
+): Promise<number> {
+    // Compute a unique cache key using parameters
+    const cacheKey = `compareVersions-${versionA}-${versionB}`;
+
+    // Use the cache utility to fetch the cache
+    let cacheResult = await get(cacheKey, regionCode);
+
+    if(typeof cacheResult !== "number") {
+        cacheResult =  compareVersions(versionA, versionB)
+        // if cache miss, then set the cache
+        set(cacheKey, cacheResult, 50000, regionCode)
+    }
+
+    return cacheResult
 }

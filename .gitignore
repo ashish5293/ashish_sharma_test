@@ -4,3 +4,6 @@
 # Compiled files
 /build
 /dist
+
+/GeoLRUCacheQuestionC/build
+/GeoLRUCacheQuestionC/node_modules

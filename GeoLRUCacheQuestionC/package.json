@@ -6,9 +6,7 @@
   "scripts": {
     "start": "NODE_ENV=production node ./build/index.js",
     "build": "rm -rf build && ./node_modules/typescript/bin/tsc",
-    "dev": "NODE_ENV=development ./node_modules/nodemon/bin/nodemon.js --watch 'src/**/*' -e ts --exec 'ts-node src/index.ts'",
-    "questionASolution": "ts-node src/questionA/solution.ts",
-    "questionBSolution": "ts-node src/questionB/solution.ts"
+    "dev": "NODE_ENV=development ./node_modules/nodemon/bin/nodemon.js --watch 'src/**/*' -e ts --exec 'ts-node src/index.ts'"
   },
   "keywords": [],
   "author": "",
@@ -26,7 +24,6 @@
     "axios": "^1.6.1",
     "inversify": "^6.0.2",
     "inversify-restify-utils": "^3.6.0",
-    "node-fetch": "^3.3.2",
     "reflect-metadata": "^0.1.13",
     "restify": "^11.1.0",
     "restify-errors": "^8.0.2",

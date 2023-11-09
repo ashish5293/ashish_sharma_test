@@ -1,8 +1,10 @@
+import {injectable} from "inversify";
+
 type CacheValue<T> = {
     value: T;
     expiresAt: number;
 };
-
+@injectable()
 export class LRUCache<V> {
     private cacheMap: Map<string, CacheValue<V>>;
     private readonly maxSize: number;

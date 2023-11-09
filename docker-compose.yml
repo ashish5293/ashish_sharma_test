@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  ormuco-api:
+    build:
+      context: .
+      target: develop
+    ports:
+      - "8082:8082"
+    container_name: ormuco-api
+    volumes:
+      - /code/node_modules
+      - /code/build
+      - ./:/code
+    command: npm run start
+
+  ormuco-cache-us-east-1:
+    build:
+      context: ./GeoLRUCacheQuestionC/
+      target: develop
+    ports:
+      - "8087:8087"
+    environment:
+      REGION: us-east-1
+    container_name: ormuco-cache-us-east-1
+    volumes:
+      - /code/node_modules
+      - /code/build
+      - ./:/code
+    command: npm run start
+
+  ormuco-cache-us-west-1:
+    build:
+      context: ./GeoLRUCacheQuestionC/
+      target: develop
+    ports:
+      - "8088:8087"
+    environment:
+      REGION: us-west-1
+    container_name: ormuco-cache-us-west-1
+    volumes:
+      - /code/node_modules
+      - /code/build
+      - ./:/code
+    command: npm run start
+
+
+  ormuco-cache-eu-west-1:
+    build:
+      context: ./GeoLRUCacheQuestionC/
+      target: develop
+    ports:
+      - "8089:8087"
+    environment:
+      REGION: eu-west-1
+    container_name: ormuco-cache-eu-west-1
+    volumes:
+      - /code/node_modules
+      - /code/build
+      - ./:/code
+    command: npm run start
