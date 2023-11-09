@@ -251,8 +251,8 @@ a supplementary service named `ormuco-api` is defined in the [docker-compose](do
     - It expects a JSON payload in the following format:
       - ```json
         {
-          "version1": string,
-          "version2": string,       
+          "version1": "string",
+          "version2": "string"    
         } 
         ```
 - Both the above endpoints utilize the `distributed cache services` to enhance performance and data retrieval efficiency.
